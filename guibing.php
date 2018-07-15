@@ -46,17 +46,18 @@ function guibing(array $arr){
         return $arr;
     }else if (count($arr) ==2){
         return merge($arr);
-    }
-    $low            =       0;
-    $high           =       count($arr);
-    $mid            =       ceil(count($arr)/2);
+    }else{
+        $low            =       0;
+        $high           =       count($arr);
+        $mid            =       ceil(count($arr)/2);
 
-    $arr_left       =   array_slice($arr,$low,$mid);
-    $arr_left1      =   guibing($arr_left);
-    $arr_right      =   array_slice($arr,$mid);
-    $arr_right2     =   guibing($arr_right);
-    $arr            =   array_merge($arr_left1,$arr_right2);
-    return merge($arr);
+        $arr_left       =   array_slice($arr,$low,$mid);
+        $arr_left1      =   guibing($arr_left);
+        $arr_right      =   array_slice($arr,$mid);
+        $arr_right2     =   guibing($arr_right);
+        $arr            =   array_merge($arr_left1,$arr_right2);
+        return merge($arr);
+    }
 }
 
 var_dump($arr);

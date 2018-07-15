@@ -22,3 +22,22 @@ function charu(array $arr){
     }
     return $arr;
 }
+
+function xie(array $arr){
+    $length         =       count($arr);
+    $k              =       1;
+    while( $k < $length/3){
+        $k          =       3*$k+1;
+    }
+    while($k >= 1){
+        for($i = 1;$i<$length;$i++){
+            for($j = $i;$j>= $k && ($arr[$j] > $arr[$j-$k]);$j-=$k){
+                $temp       =       $arr[$j];
+                $arr[$j]    =       $arr[$j-$k];
+                $arr[$j-$k]  =       $temp;
+            }
+        }
+        $k          =       $k/3;
+    }
+    return $arr;
+}
